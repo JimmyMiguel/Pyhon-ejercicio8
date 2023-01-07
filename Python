@@ -1,0 +1,44 @@
+#En este segundo ejercicio, tendréis que crear un archivo py y dentro crearéis una clase Vehículo, haréis un objeto de ella, lo guardaréis en un archivo y luego lo cargamos.
+import pickle
+
+
+class vehiculo:
+    
+    
+    def __init__(self,color, ruedas, acelerador, volante):
+        self.color = color
+        self.ruedas = ruedas
+        self.acelerador = acelerador
+        self.volante = volante
+    
+    def acelera(acelerador):
+        acelerador = 0 + acelerador
+    
+    def girar_derecha (self):
+        print('girar derecha')
+        pass
+    
+    def girar_izquierda(self):
+        print('girar ala izquierda')
+        pass
+        
+    def __repr__(self) -> str:
+        return f'color:{self.color}\nruedas:{self.ruedas}\nacelerador:{self.acelerador}\nvolante:{self.volante}'
+
+
+mazda = vehiculo('rojo', 4,0,'centro')
+
+
+archivo = open('coche.txt', 'wb')
+
+pickle.dump(mazda,archivo)
+
+archivo.close()
+
+abrir_archivo = open('coche.txt','rb')
+
+abrir_instacia = pickle.load(abrir_archivo)
+
+print(abrir_instacia)
+
+
